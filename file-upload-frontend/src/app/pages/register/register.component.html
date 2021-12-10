@@ -1,0 +1,18 @@
+<div class="container">
+    <form class="form__login" #userForm="ngForm" (ngSubmit)="setUserToDatabase(user)">
+      <h1 class="form__title">
+        Regisztráció 
+      </h1>
+      <div class="form__group">
+        <label for="username" class="form__label">Felhasználó név</label>
+        <input type="text" id="username" name="username" [(ngModel)]="user.username" class="form__input" required>
+      </div>
+      <div class="form__group">
+        <label for="password" class="form__label">Jelszó</label>
+        <input type="password" id="password" name="password" [(ngModel)]="user.password" class="form__input" required>
+      </div>
+      <div class="form__button-group">
+        <button type="submit" [disabled]="userForm.invalid" class="form__btn">Regisztráció</button>
+      </div>
+    </form>
+</div>

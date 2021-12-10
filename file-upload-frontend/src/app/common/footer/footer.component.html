@@ -1,0 +1,14 @@
+<div class="footer">
+  <ul class="footer__list">
+    <li class="footer__item">
+      <a routerLink="/" class="footer__link">Főoldal</a>
+    </li>
+    <li class="footer__item">
+      <a routerLink="/files" class="footer__link">Fájlok</a>
+    </li>
+    <li class="footer__item">
+      <a *ngIf="!user" routerLink="/login" class="footer__link">Bejelentkezés</a>
+      <a *ngIf="user" (click)="onLogout()" class="footer__link" routerLink="/login">Kijelentkezés</a>
+    </li>
+  </ul>
+</div>

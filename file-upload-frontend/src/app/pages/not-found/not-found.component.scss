@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+$font-family: 'Roboto', sans-serif;
+
+.title{
+  font-family: $font-family;
+}
+
+.button__section{
+  display: flex;
+  margin-top: 2rem;
+
+  .btn{
+    background-color: rgb(73, 61, 233);
+    border: none;
+    border-radius: 0.3rem;
+    color: #ddd;
+    justify-content: center;
+    margin: .5rem auto;
+    padding: .4rem;
+    width: 15rem;
+  
+    &:hover{
+      cursor: pointer;
+      background-color: rgb(87, 61, 250);
+    }
+  }
+}

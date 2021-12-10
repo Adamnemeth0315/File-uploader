@@ -1,0 +1,22 @@
+<div class="container">
+    <form class="form__login" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+      <h1 class="form__title">
+        Jelentkezz be! 
+      </h1>
+      <div class="form__group">
+        <label for="username" class="form__label">Felhasználó név</label>
+        <input type="text" id="username" name="username" [(ngModel)]="user.username" class="form__input" required>
+      </div>
+      <div class="form__group">
+        <label for="password" class="form__label">Jelszó</label>
+        <input type="password" id="password" name="password" [(ngModel)]="user.password" class="form__input" required>
+      </div>
+      <div class="form__button-group">
+        <span *ngIf="serverError && loginForm.submitted" class="alert"> {{ serverError }} </span>
+        <button type="submit" [disabled]="loginForm.invalid" class="form__btn">Bejelentkezés</button>
+        <button class="registration__btn">
+          <a routerLink="/login/register" class="registration__link" >Regisztráció</a>
+        </button>
+      </div>
+      </form>
+</div>

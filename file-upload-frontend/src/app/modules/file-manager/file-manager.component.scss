@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+$font-family: 'Roboto', sans-serif;
+
+.file-manager__title{
+  font-family: $font-family;
+  margin-top: 3rem;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .pagination{
+  
+    &__ul{
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+    
+      .page__item{
+        margin-right: .4rem;
+        padding: .3rem;
+        background-color: #fff;
+        border: 1px solid rgb(108, 102, 194);
+        border-radius: .2rem;
+        
+        .page__link, .page__link-next, .page__link-back{
+          font-family: $font-family;
+          background-color: #fff;
+          border: none;
+          color: rgb(108, 102, 194);
+          text-decoration: none;
+        }
+      }
+
+      .active{
+        background-color: rgb(108, 102, 194);
+        color: #fff;
+        border: 1px solid #fff;
+
+        .page__link{
+          font-family: $font-family;
+          background-color: rgb(108, 102, 194);
+          border: none;
+          color: #fff ;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  
+  .upload__btn{
+  background-color: rgb(73, 61, 233);
+  border: none;
+  border-radius: 0.3rem;
+  color: #ddd;
+  justify-content: center;
+  margin: .5rem auto;
+  padding: .4rem;
+  width: 15rem;
+}
+
+.form-control{
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  font-family: $font-family;
+}
+
+.file__input {
+  display: none;
+}
+
+.input {
+  line-height: 1.3rem;
+  justify-content: center;
+  margin: .3rem auto;
+  width: 15rem;
+}
+
+.table{  
+  border-collapse: collapse;
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+  overflow-x: scroll;
+  
+  @media screen and (min-width: 720px) {
+    overflow-x: hidden;
+  }
+  
+  &__header-row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #121;
+  }
+  
+  &__body-row {
+    display: block;
+    overflow: auto;
+    width: 100%;
+  }
+  
+    &__header, &__cell {
+      font-family: $font-family;
+      padding: .5rem .6rem;
+      user-select: none;
+      width: 10rem;
+    }
+
+    &__header:active {
+      background-color: #c2c2c2
+    }
+    
+    &__cell{ 
+      font-family: $font-family;
+    }
+}
+
+.del__btn {
+  background-color: rgba(221, 27, 13, 0.925);
+  color: #FFF;
+  border: none;
+  border-radius: .2rem;
+  font-family: $font-family;
+  padding: .2rem .4rem;
+}
+}
+

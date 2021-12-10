@@ -1,0 +1,69 @@
+<div class="container">
+  <h1 class="file-manager__title">
+    Fájlkezelő
+  </h1>
+  <form #fileForm="ngForm" class="file__manager--form" enctype="multipart/form-data">
+    <input class="file__input" (change)=onSave($event.target.files) #fileUpload type="file" name="file">
+    <div class="form-control">
+      <label for="folder">Választott mappa neve</label>
+      <input class="input" id="folder" type="text" [(ngModel)]="destination" name="destination">
+    </div>
+    <button class="upload__btn" (click)="fileUpload.click()">Fájl kiválasztása</button>
+  </form>
+  
+  <app-modal 
+    [showModal]="showModal" 
+    [selectedToDeleteItem]="selectedToDeleteItem" 
+    (deleteClick)="onDelete()"  
+    (onShowModal)="setShowModalToFalse()" 
+  ></app-modal>
+
+  <div class="table">
+    <table class="table__container">
+      <thead class="table__header-row">
+        <tr>
+          <th *ngFor="let col of cols" class="table__header" (click)="onSort(col.key)">
+            <i *ngIf="sorterKey === col.key && sorterDirection === 1" class="fa fa-angle-up"></i>
+            <i *ngIf="sorterKey === col.key && sorterDirection === -1" class="fa fa-angle-down"></i>
+            {{col.text}}</th>
+          <th class="table__header"></th>
+        </tr>
+      </thead>
+      <tbody class="table__body-row">
+        <tr *ngFor="let file of files$ | async | sorter:sorterKey:sorterDirection | slice:pageSliceStart:pageSliceEnd">
+          <td class="table__cell">{{file.filename}}</td>
+          <td class="table__cell">{{file.originalname}}</td>
+          <td class="table__cell">{{file.size}} byte</td>
+          <td class="table__cell">{{file.mimetype}}</td>
+          <td class="table__cell">
+            <button  (click)="selectedItemToDelete(file)" class="del__btn">Törlés</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <div class="pagination">
+      <ul class="pagination__ul"> 
+        <li class="page__item">
+          <button 
+          [disabled]="currentPage === 1"
+          (click)="onStepPage($event, -1)"
+          href="#" 
+          class="page__link-back">Előző</button>
+        </li>
+        <li *ngFor="let btn of paginator" class="page__item"
+          [class.active]="btn.page === currentPage">
+          <a (click)="onPaginate($event, btn)" href="#" class="page__link">{{btn.page}}</a>
+        </li>
+        <li class="page__item">
+          <button
+          [disabled]="currentPage === maxSize"
+          (click)="onStepPage($event, 1)" 
+          href="#" 
+          class="page__link-next">Következő</button>
+        </li>
+      </ul>
+    </div>
+    
+</div>

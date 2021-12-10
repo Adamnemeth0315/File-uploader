@@ -1,0 +1,25 @@
+<nav class="nav">
+    <div class="nav__container">
+        <label class="nav__hamburger-label" for="menu">
+            <span class="nav__hamburger-line"></span>
+            <span class="nav__hamburger-line"></span>
+            <span class="nav__hamburger-line"></span>
+        </label>
+        <input class="nav__hamburger-checkbox" type="checkbox" id="menu">
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a class="nav__link--title" routerLink="/">File Uploader</a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" routerLink="/">Főoldal</a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link"  routerLink="/files">Fájlok</a>
+            </li>
+            <li class="nav__item">
+                <a *ngIf="!user" class="nav__link" routerLink="/login">Bejelentkezés</a>
+                <a *ngIf="user" (click)="onLogout()" class="nav__link" routerLink="/login">Kijelentkezés</a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+$font-family: 'Roboto', sans-serif;
+
+.modal{
+  display: flex;
+  flex-wrap: nowrap;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all .3s;
+  justify-content: center;
+  align-items: center;
+
+  &-content{
+    background-color: #fdfdfd;
+    border: 1px solid #888;
+    flex-wrap: nowrap;
+    font-family: $font-family;
+    margin: auto;
+    padding: 15px;
+    width: 100%;
+
+    @media screen and (min-width: 690px){
+      background-color: #fdfdfd;
+      margin: auto;
+      padding: 15px;
+      border: 1px solid #888;
+      width: 50%;
+    }
+  }
+
+  &__text{
+    flex-wrap: nowrap;
+    min-width: 100%;
+
+    @media screen and (min-width: 560px) {
+      min-width: 70%;
+    }
+  }
+
+  &__close{
+    float: right;
+    top:1.2rem;
+    right: 1.2rem;
+    color: #333;
+    font-size: 2.5rem;
+    padding-right: 1rem;
+
+    &:hover{
+      color: #000;    
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+
+  &__footer{
+    display: flex;
+    flex-wrap: nowrap;
+
+    @media only screen and (min-width: 560px) {
+      width: 100%;
+    }
+  }
+
+  .btn__group{
+    display: flex-end;
+    margin-left:auto ;
+
+    .succed__btn{
+      background-color: rgba(60, 192, 56, 0.925);
+      color: #FFF;
+      border: none;
+      border-radius: .2rem;
+      font-family: $font-family;
+      padding: .2rem .4rem;
+      margin-right: .5rem;
+    }
+
+    .close__btn{
+      background-color: rgba(221, 27, 13, 0.925);
+      color: #FFF;
+      border: none;
+      border-radius: .2rem;
+      font-family: $font-family;
+      padding: .2rem .4rem;
+    }
+  }
+}

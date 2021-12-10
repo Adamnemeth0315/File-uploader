@@ -1,0 +1,22 @@
+
+
+<section *ngIf="showModal" class="modal">
+  <div class="modal-content" tabindex="0"> 
+      <span (click)="setShowModalToFalse()" class="modal__close">&times;</span>
+      <header>
+          <h2>Fájl törlése</h2>
+      </header>
+      <div class="modal__text">Biztosan törölni kívánja a fájlt?</div>
+      <footer class="modal__footer">
+          <div class="btn__group">
+              <button (click)="onClickDelete()" class="succed__btn">
+                  Igen
+              </button>
+              <button (click)="setShowModalToFalse()" class="close__btn">
+                  Mégse
+              </button>
+          </div>
+      </footer>
+  </div>
+</section>
+

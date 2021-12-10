@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+$font-family: 'Roboto', sans-serif;
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  min-height: 70vh;
+}
+
+
+.form {
+
+  /* max-width: 70vw;
+  min-height: 70vh; */
+
+  &__login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  &__title {
+    text-align: center;
+    font-family: $font-family;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 80vw;
+    
+    @media screen and (min-height: 990px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 40vw;
+    }
+  }
+
+  &__label {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: $font-family;
+  }
+
+  &__input {
+    line-height: 1.2rem;
+    justify-content: center;
+    margin: .3rem auto;
+    width: 15rem;
+  }
+
+  &__button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 80vw;
+    font-family: $font-family;
+    
+    @media screen and (min-height: 990px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 40vw;
+    }
+    
+    .form__btn {
+      background-color: rgb(73, 61, 233);
+      border: none;
+      border-radius: 0.3rem;
+      color: #ddd;
+      justify-content: center;
+      margin: .5rem auto;
+      padding: .4rem;
+      width: 15rem;
+    
+      &:hover{
+        background-color: rgb(87, 66, 250);
+        cursor: pointer;
+      }
+    
+    }
+
+    .registration__btn {
+      background-color: #cdcdcd;
+      border: none;
+      border-radius: .3rem;
+      display: flex;
+      justify-content: center;
+      margin: .5rem auto;
+      padding: .4rem;
+      width: 15rem;
+
+      &:hover{
+        background-color: #ddd;
+        cursor: pointer;
+      }
+
+      .registration__link{
+        color: #222;
+        text-decoration: none;
+      }
+    }
+  
+    .alert {
+      color: rgba(206, 40, 40, .9);
+      font-weight: 800;
+      text-align: center;
+      margin: auto;
+      padding: .3rem;
+      width: 15rem;
+    }
+  }
+}
+
+
+
+
