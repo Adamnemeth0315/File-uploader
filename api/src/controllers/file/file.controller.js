@@ -1,8 +1,10 @@
 const createError = require('http-errors');
 const fileService = require('./file.service');
-const Model = require('../../models/file.model');
+const File = require('../../models/file.model');
+const { uploadFile, existFolder, fileMoveToCorrectFolder } = require('./file.middleware');
 const { unlink } = require('fs');
 const path = require('path');
+const multer = require('multer');
 
 exports.findAll = (_req, res, _next) => {
   return fileService.findAll()
@@ -20,6 +22,31 @@ exports.findOne = (req, res, next) => {
       res.json(file);
     })
 };
+
+exports.upload = (req, res, next) => {
+  uploadFile(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      res.send(err)
+    } else if (err) {
+      res.send(err)
+    }
+    existFolder(req, res);
+    const file = new File(req.file);
+    if (req.body?.destination) {
+      file.folder =  req.body.destination;
+    } 
+    file.save().then(createdFile => {
+      //Itt átalakítom objecté az adatot ami jön és már tudom módosítani. Ehhez a toObject metódust használom.
+      const resData = { file: { ...createdFile.toObject() } };
+      
+      res.status(201).json(resData);
+      fileMoveToCorrectFolder(req, res); 
+    })
+    .catch( err => {
+      next(new createError.InternalServerError(err.message));
+    })
+  });
+}
 
 exports.delete = (req, res, next) => {
   console.log('dest: ', req.query.folder);

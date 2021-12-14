@@ -4,7 +4,7 @@ const controller = require('./file.controller');
 const router = express.Router();
 
 router.post('/', (req, res, next) => {
-  return controller.create(req, res, next);
+  return controller.upload(req, res, next);
 });
 
 router.get('/', (req, res, next) => {

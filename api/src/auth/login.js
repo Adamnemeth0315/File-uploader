@@ -10,8 +10,6 @@ module.exports = async (req, res) => {
       throw new Error("User not found!");
     }
 
-    console.log(user);
-
     const verified = await user.verifyPassword(password);
     if (!verified) {
       throw new Error('Incorrect password');
@@ -29,5 +27,4 @@ module.exports = async (req, res) => {
   } catch(error) {
     res.status(404).json(error.message);
   }
-
 };
