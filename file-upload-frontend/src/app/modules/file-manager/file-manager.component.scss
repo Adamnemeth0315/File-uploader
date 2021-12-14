@@ -59,26 +59,27 @@ $font-family: 'Roboto', sans-serif;
   margin: .5rem auto;
   padding: .4rem;
   width: 15rem;
-}
+  }
 
-.form-control{
-  display: flex;
-  flex-direction: column;
-}
+  .form-control{
+    display: flex;
+    flex-direction: column;
+  }
 
-label{
-  font-family: $font-family;
-}
+  label{
+    font-family: $font-family;
+  }
 
-.file__input {
-  display: none;
-}
+  .file__input {
+    display: none;
+  }
 
-.input {
-  line-height: 1.3rem;
-  justify-content: center;
-  margin: .3rem auto;
-  width: 15rem;
+  .input {
+    line-height: 1.3rem;
+    justify-content: center;
+    margin: .3rem auto;
+    width: 15rem;
+  }
 }
 
 .table{  
@@ -87,10 +88,7 @@ label{
   justify-content: center;
   margin: 1rem auto;
   overflow-x: scroll;
-  
-  @media screen and (min-width: 720px) {
-    overflow-x: hidden;
-  }
+  width: 100%;
   
   &__header-row {
     display: flex;
@@ -100,7 +98,6 @@ label{
   
   &__body-row {
     display: block;
-    overflow: auto;
     width: 100%;
   }
   
@@ -128,5 +125,5 @@ label{
   font-family: $font-family;
   padding: .2rem .4rem;
 }
-}
+
 

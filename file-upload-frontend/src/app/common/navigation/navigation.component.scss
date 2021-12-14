@@ -16,7 +16,7 @@ body{
     align-items: flex-start;
     display: flex;
     flex-direction: row-reverse;
-    width: 100%;
+    width: 100vw;
     
     @media screen and (min-width: 40em) {
       align-items: center;
@@ -24,52 +24,52 @@ body{
   }
   
   &__list{
-        display: none;
-        flex-direction: column;
-        list-style: none;
-        margin: 0 auto;
-        padding: 0;
-        width: 100%;
-        
-        @media screen and (min-width: 40rem) {
-          display: flex;
-          flex-direction: row;
-          width: auto;
-        }
-      }
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    
+    @media screen and (min-width: 40rem) {
+      display: flex;
+      flex-direction: row;
+      width: auto;
+    }
+  }
 
     &__item {
-        text-align: center;
-      }
+      text-align: center;
+    }
 
     &__link{
+      color: #dfdfdf;
+      display: block;
+      font-family: $font-family;
+      font-weight: 700;
+      line-height: 1rem;
+      padding: 1rem;
+      text-decoration: none;
+
+      &:hover {
+          color: rgba(238, 186, 15, .8);
+      }
+
+      &--title{
         color: #dfdfdf;
         display: block;
+        font-size: 1.4rem;
         font-family: $font-family;
-        font-weight: 700;
-        line-height: 1rem;
+        font-weight: 800;
         padding: 1rem;
+        line-height: 1rem;
         text-decoration: none;
+        text-align: left;
 
-        &:hover {
-            color: rgba(238, 186, 15, .8);
+        @media screen and (max-width: 40rem) {
+          display: none;
         }
-
-        &--title{
-          color: #dfdfdf;
-          display: block;
-          font-size: 1.4rem;
-          font-family: $font-family;
-          font-weight: 800;
-          padding: 1rem;
-          line-height: 1rem;
-          text-decoration: none;
-          text-align: left;
-
-          @media screen and (max-width: 40rem) {
-            display: none;
-          }
-        }
+      }
     }
     
     &__hamburger-checkbox {
