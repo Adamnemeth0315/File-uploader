@@ -4,7 +4,7 @@ const Model = require('../../models/file.model');
 const { unlink } = require('fs');
 const path = require('path');
 
-exports.findAll = (req, res, next) => {
+exports.findAll = (_req, res, _next) => {
   return fileService.findAll()
       .then( files => {
           res.json(files);

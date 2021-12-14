@@ -27,7 +27,7 @@ export class FileManagerService {
     return this.http.get<File>(`${this.config.apiUrl}files/${filename}`);
   }
 
-  create(file: File, destination: string): Observable<CFile> {
+  create(file: File, destination: string): Observable<CFile | CFile[]> {
     const formData: FormData = new FormData();
 
     if(
@@ -41,7 +41,7 @@ export class FileManagerService {
       throw new Error('Only .pdf, .xlsx and .png format allowed!')
     }
 
-    return this.http.post<CFile>(`${this.config.apiUrl}single`, formData);
+    return this.http.post<CFile | CFile[]>(`${this.config.apiUrl}single`, formData);
   }
 
   remove(file: CFile): Observable<CFile> { 

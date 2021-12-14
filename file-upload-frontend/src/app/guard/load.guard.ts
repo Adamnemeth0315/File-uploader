@@ -14,12 +14,10 @@ export class LoadGuard implements CanLoad {
   ) {}
   
   canLoad(
-    route: Route,
-    segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    _route: Route,
+    _segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if (!this.auth.currentUserValue) {
-        console.log(this.auth.currentUserValue);
-        this.router.navigate(['login']);
-        return false;
+        return this.router.parseUrl('login');
       }
       return true;
   }

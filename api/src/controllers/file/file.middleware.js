@@ -1,6 +1,15 @@
 const multer = require('multer');
 
-const upload = multer({ 
+const fileStorageEngine = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, '/files'))
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '--' + file.originalname)
+  }
+});
+
+const uploadFiles = multer({ 
   storage: fileStorageEngine,
   fileFilter(req, file, cb) {
     if( 
@@ -14,6 +23,6 @@ const upload = multer({
       return cb(new Error('Only .pdf, .xlsx and .png format allowed!'));
     }
 }
-}).single('file');
+}).array('files', 3);
 
-module.exports = upload;
+module.exports = uploadFiles;

@@ -89,7 +89,6 @@ app.post('/login', require('./auth/login'));
 app.use('/register', require('./controllers/user/user.routes'));
 
 
-
 app.post('/single', (req, res) => {
 
   upload(req, res, function (err) {
@@ -114,12 +113,9 @@ app.post('/single', (req, res) => {
       next(new createError.InternalServerError(err.message));
     })
   });
-
 })
 
-app.get('/', (_req, res) => {
-  res.send('File Uploader')
-});
+
 app.use('/files', require('./controllers/file/file.routes'));
 app.use('/users', authentication, require('./controllers/user/user.routes'));
 

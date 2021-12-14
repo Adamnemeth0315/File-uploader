@@ -3,7 +3,7 @@
     Fájlkezelő
   </h1>
   <form #fileForm="ngForm" class="file__manager--form" enctype="multipart/form-data">
-    <input class="file__input" (change)=onSave($event.target.files) #fileUpload type="file" name="file">
+    <input class="file__input" (change)=onSave($event.target.files) #fileUpload type="file" multiple name="file">
     <div class="form-control">
       <label for="folder">Választott mappa neve</label>
       <input class="input" id="folder" type="text" [(ngModel)]="destination" name="destination">
