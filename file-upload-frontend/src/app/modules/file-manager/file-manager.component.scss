@@ -84,11 +84,16 @@ $font-family: 'Roboto', sans-serif;
 
 .table{  
   border-collapse: collapse;
-  display: flex;
+  display: block;
   justify-content: center;
   margin: 1rem auto;
   overflow-x: scroll;
   width: 100%;
+
+  @media screen and (min-width: 720px) {
+    display: flex;
+    overflow: hidden;
+  }
   
   &__header-row {
     border-bottom: 1px solid #121;

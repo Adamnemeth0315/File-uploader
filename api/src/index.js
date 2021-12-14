@@ -13,7 +13,6 @@ mongoose.Promise = global.Promise;
 const cors = require('cors');
 app.use(cors());
 
-
 mongoose.connect(mongoURI ,{
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -29,9 +28,9 @@ app.use(express.json());
 app.post('/login', require('./auth/login'));
 app.use('/register', require('./controllers/user/user.routes'));
 
-
+//File uploader endpoints
 app.use('/single', authentication, require('./controllers/file/file.routes'));
-app.use('/files', authentication, require('./controllers/file/file.routes'));
+app.use('/files', require('./controllers/file/file.routes'));
 app.use('/users', authentication, require('./controllers/user/user.routes'));
 
 app.use( (err, _req, res, _next) => {
