@@ -14,7 +14,7 @@ export class AuthService {
   loginUrl = `${this.config.apiUrl}login`;
   logoutUrl = `${this.config.apiUrl}logout`;
   currentUserSubject$: BehaviorSubject<User | null> = new BehaviorSubject(null);
-  lastToken: string = '';
+  lastToken: string | User = '';
   currentUserValue: User | undefined;
 
   constructor(
@@ -25,7 +25,7 @@ export class AuthService {
     if (localStorage.currentUser) {
       const user: User = JSON.parse(localStorage.currentUser);
       this.currentUserValue = user; 
-      this.lastToken = (user) as string || '';
+      this.lastToken = user || ''; //Ez még nem a legszebb megoldás itt egy külön változóval szebb lenne. 
       this.currentUserSubject$.next(user);
     }
   }
