@@ -30,7 +30,7 @@ app.use('/register', require('./controllers/user/user.routes'));
 
 //File uploader endpoints
 app.use('/single', authentication, require('./controllers/file/file.routes'));
-app.use('/files', require('./controllers/file/file.routes'));
+app.use('/files', authentication, require('./controllers/file/file.routes'));
 app.use('/users', authentication, require('./controllers/user/user.routes'));
 
 app.use( (err, _req, res, _next) => {
