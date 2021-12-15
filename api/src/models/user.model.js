@@ -10,6 +10,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  accessToken: String,
 }, {
     timeStamps: true
   });

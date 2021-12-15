@@ -5,7 +5,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../model/user';
 import { ConfigService } from './config.service';
-import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +21,11 @@ export class AuthService {
     private config: ConfigService,
     private http: HttpClient,
     private router: Router,
-    private userService: UserService
   ) {
     if (localStorage.currentUser) {
       const user: User = JSON.parse(localStorage.currentUser);
       this.currentUserValue = user; 
-      this.lastToken = user.accessToken || '';
+      this.lastToken = (user) as string || '';
       this.currentUserSubject$.next(user);
     }
   }
@@ -44,6 +42,7 @@ export class AuthService {
           this.currentUserSubject$.next(response.user);
           localStorage.currentUser = JSON.stringify(response.user.accessToken);
           this.currentUserValue = response.user;
+          console.log(this.lastToken);
           return response.user;
         }
         return null;
@@ -58,5 +57,4 @@ export class AuthService {
     this.currentUserValue = undefined;
     this.router.navigate(['/', 'login']);
   }
-
 }

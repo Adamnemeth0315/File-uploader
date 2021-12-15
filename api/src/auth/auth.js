@@ -15,4 +15,4 @@ module.exports = (req, res, next) => {
   } else {
     res.sendStatus(401);
   }
-}
+};

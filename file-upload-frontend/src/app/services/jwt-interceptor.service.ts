@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class JwtInterceptorService implements HttpInterceptor {
 
   constructor(
@@ -14,6 +12,7 @@ export class JwtInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const currentToken = this.auth.lastToken;
+    console.log(currentToken)
 
     if ( currentToken ){
       request = request.clone({
@@ -25,5 +24,4 @@ export class JwtInterceptorService implements HttpInterceptor {
 
     return next.handle(request);
   }
-
 }
