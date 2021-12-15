@@ -25,7 +25,7 @@ export class AuthService {
     if (localStorage.currentUser) {
       const user: User = JSON.parse(localStorage.currentUser);
       this.currentUserValue = user; 
-      this.lastToken = user || ''; //Ez még nem a legszebb megoldás itt egy külön változóval szebb lenne. 
+      this.lastToken = user || ''; 
       this.currentUserSubject$.next(user);
     }
   }
@@ -42,7 +42,6 @@ export class AuthService {
           this.currentUserSubject$.next(response.user);
           localStorage.currentUser = JSON.stringify(response.user.accessToken);
           this.currentUserValue = response.user;
-          console.log(this.lastToken);
           return response.user;
         }
         return null;
